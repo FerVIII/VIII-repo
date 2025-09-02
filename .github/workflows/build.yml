@@ -1,0 +1,38 @@
+name: Build & Release Kodi Addon
+
+on:
+  push:
+    tags:
+      - "v*.*.*" # Se ejecuta al crear tags como v1.0.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Validate addon.xml
+        run: |
+          if [ ! -f plugin.video.viiiiptv/addon.xml ]; then
+            echo "❌ addon.xml no encontrado"
+            exit 1
+          fi
+          echo "✅ addon.xml encontrado"
+
+      - name: Package Addon
+        run: |
+          zip -r plugin.video.viiiiptv-${GITHUB_REF_NAME}.zip plugin.video.viiiiptv
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: plugin.video.viiiiptv-${GITHUB_REF_NAME}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
