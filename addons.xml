@@ -1,18 +1,19 @@
-<addons>
-    <addon id="plugin.video.viiiiptv"
-           name="VIIIiptv"
-           version="1.0.0"
-           provider-name="FerVIII">
-        <extension point="xbmc.python.pluginsource"
-                   library="default.py" />
-        <extension point="xbmc.addon.metadata">
-            <summary>Addon IPTV personalizado por FerVIII</summary>
-            <description>Reproduce tus canales IPTV y AceStream desde Kodi</description>
-            <platform>all</platform>
-            <assets>
-                <icon>plugin.video.viiiiptv/icon.png</icon>
-                <fanart>plugin.video.viiiiptv/fanart.png</fanart>
-            </assets>
-        </extension>
-    </addon>
+﻿<addons>
+<addon id="plugin.video.viiiiptv"
+       name="VIIIiptv"
+       version="1.0.0"
+       provider-name="FerVIII">
+    <extension point="xbmc.python.pluginsource"
+               library="default.py" />
+    <extension point="xbmc.addon.metadata">
+        <summary>Addon IPTV personalizado por FerVIII</summary>
+        <description>Reproduce tus canales IPTV y AceStream desde Kodi</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.png</fanart>
+        </assets>
+    </extension>
+</addon>
+
 </addons>
